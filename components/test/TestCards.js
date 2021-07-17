@@ -6,7 +6,7 @@ function TestCards(){
     return(
         <div>
              <div className="items-center p-5 cards-container">
-                 <div className="flex flex-row p-6 test-card-body mb-6" onClick={()=> {router.push('/test/subject')}}>
+                 <div className="flex flex-row p-6 test-card-body mb-6 scale-in-ver-top" onClick={()=> {router.push('/test/subject')}}>
                     <div className="flex flex-col card-text">
                         <p>MONTE SEU DESAFIO</p>
                         <h5>Selecione quais disciplinas 
@@ -17,7 +17,7 @@ function TestCards(){
                      </div>  
                  </div>
 
-                 <div className="flex flex-row p-6 test-card-body mb-6">
+                 <div className="flex flex-row p-6 test-card-body mb-6 scale-in-ver-top">
                     <div className="flex flex-col card-text">
                         <p>QUESTÕES ALEATÓRIAS</p>
                         <h5>Faça o simulado respondendo 
@@ -28,7 +28,7 @@ function TestCards(){
                      </div>  
                  </div>
 
-                 <div className="flex flex-row p-6 test-card-body mb-6">
+                 <div className="flex flex-row p-6 test-card-body mb-6 scale-in-ver-top">
                     <div className="flex flex-col card-text">
                         <p>INTENSIVO</p>
                         <h5>respondendo as questões aleatóriamente 
@@ -39,7 +39,7 @@ function TestCards(){
                      </div>  
                  </div>
 
-                 <div className="flex flex-row p-6 test-card-body mb-6">
+                 <div className="flex flex-row p-6 test-card-body mb-6 scale-in-ver-top">
                     <div className="flex flex-col card-text">
                         <p>MONTE SEU DESAFIO</p>
                         <h5>Selecione quais disciplinas 

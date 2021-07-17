@@ -8,7 +8,7 @@ function Header(props){
 
     return(
         <div className="flex flex-row block header">
-            <h1 className="heading">{props.heading}</h1>
+            <h1 className="heading slide-in-left">{props.heading}</h1>
         </div>
     )
 }

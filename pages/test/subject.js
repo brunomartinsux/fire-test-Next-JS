@@ -1,12 +1,21 @@
-import { faArrowLeft, faArrowRight, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowRight, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 import router from "next/router";
-import { Input } from "postcss";
+import { useEffect, useState } from "react";
 import FooterComponent from "../../components/Footer";
 
 function Subject(){
 
-    const subjects = ['ARTES PLÁSTICAS', 'ARTES VISUAIS', 'ATUALIDADES', 'BIOLOGIA', 'CIÊNCIAS']
+    const [subjects, setSubjects ] = useState([])
+   
+
+    useEffect(() => {
+        (async () => {
+            const data = await axios.get('https://us-central1-firetest-mvp.cloudfunctions.net/allSubjects')
+            setSubjects(data.data.subjects)
+        })()
+    }, [])
 
     return(
         <div>
@@ -22,20 +31,46 @@ function Subject(){
             </div>
             <div className="block bg-fixed"></div>
             {/* Fim do Header */}
-            <div className="flex flex-col justify-center px-6" style={{paddingTop: "100px"}}>
+            <div className="flex flex-col justify-center px-6 slide-in-left" style={{paddingTop: "100px"}}>
                 <input id="searchBar" type="text" className="form-control" placeholder="Pesquise a disciplina..."/>
             </div>
             
             <div className="flex flex-col block pb-12">
-            { subjects.map((item,key) => {
+                {Object.keys(subjects).map((item,key) => {
+                    const title  = item
+                    const subtitle = subjects[item]
 
-                return (
-                    <div className="flex flex-row justify-between px-6 sub-row" key={key}>
-                        <h3>{item}</h3>
-                        <FontAwesomeIcon icon={faPlus}/>
-                    </div>
-                )
-            })}
+                    console.log(subjects)
+
+                    return (
+                        <div key = {key} className="">
+                            <div
+                                className="flex flex-row justify-between px-6 sub-row scale-in-ver-top"
+                                onClick={e =>{
+                                    if(e.target.className == "flex flex-row justify-between px-6 sub-row scale-in-ver-top"){
+                                        e.target.className = "flex flex-row justify-between px-6 sub-row scale-in-ver-top active-accordion"
+
+                                        document.getElementById(title).className = ""
+                                    } else {
+                                        e.target.className = "flex flex-row justify-between px-6 sub-row scale-in-ver-top"
+                                        document.getElementById(title).className = "hidden"
+                                    }
+                                }}
+                                >
+                                <h3>{title}</h3>
+                            </div>
+                            <div id={title} className="hidden">
+                            {Object.keys(subjects).map((item,key) => {
+                                return(
+                                    <div className="flex flex-row justify-between px-6 scale-in-ver-top">
+                                        <h3>{subtitle[key]}</h3>
+                                    </div>
+                                )
+                            })}
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
 
             <FooterComponent/>

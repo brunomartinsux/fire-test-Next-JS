@@ -121,6 +121,17 @@ h1{
     margin: 12px 24px;
     align-items: center;
     color: #fff;
+    background-image: url('/plus-solid.svg');
+    background-position: 90%; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 16px;
+}
+
+.active-accordion{
+    background-image: url('/minus-solid.svg');
+    background-position: 90%; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 16px;
 }
 
 /* animation */

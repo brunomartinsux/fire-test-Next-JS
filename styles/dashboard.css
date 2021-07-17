@@ -134,6 +134,28 @@ h1{
     background-size: 16px;
 }
 
+.select-subject{
+    display: flex;
+    width: 98%;
+    align-items: center;
+    height: 56px;
+    color: #F9FAFB;
+    text-align: start;
+    border: 1px solid #4B5563;
+    border-radius: 8px;
+    background-image: url('/to-select.svg');
+    background-position: 95%; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 20px;
+}
+.select-subject[selected]  {
+    background-color: #4B5563;
+    background-image: url('/selected.svg');
+    background-position: 95%; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 20px;
+}
+
 /* animation */
 .scale-in-ver-top {
 	-webkit-animation: scale-in-ver-top 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s both;

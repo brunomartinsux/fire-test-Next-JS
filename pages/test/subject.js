@@ -40,7 +40,6 @@ function Subject(){
                     const title  = item
                     const subtitle = subjects[item]
 
-                    console.log(subjects)
 
                     return (
                         <div key = {key} className="">
@@ -50,7 +49,7 @@ function Subject(){
                                     if(e.target.className == "flex flex-row justify-between px-6 sub-row scale-in-ver-top"){
                                         e.target.className = "flex flex-row justify-between px-6 sub-row scale-in-ver-top active-accordion"
 
-                                        document.getElementById(title).className = ""
+                                        document.getElementById(title).className = "pb-6"
                                     } else {
                                         e.target.className = "flex flex-row justify-between px-6 sub-row scale-in-ver-top"
                                         document.getElementById(title).className = "hidden"
@@ -60,10 +59,17 @@ function Subject(){
                                 <h3>{title}</h3>
                             </div>
                             <div id={title} className="hidden">
-                            {Object.keys(subjects).map((item,key) => {
+                            {Object.keys(subtitle).map((item,key) => {
                                 return(
-                                    <div className="flex flex-row justify-between px-6 scale-in-ver-top">
-                                        <h3>{subtitle[key]}</h3>
+                                    <div className="flex flex-row justify-center px-6">
+                                        <div className="select-subject mb-6 px-4" 
+                                        onClick={e => {
+                                            if(e.target.hasAttribute('selected')){
+                                                e.target.removeAttribute('selected')
+                                            } else {
+                                                e.target.setAttribute('selected', '')
+                                            }
+                                        }}> {subtitle[key]}</div>
                                     </div>
                                 )
                             })}

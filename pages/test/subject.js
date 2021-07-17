@@ -58,21 +58,22 @@ function Subject(){
                         <div key = {key} className="">
                             <div
                                 className="flex flex-row justify-between px-6 sub-row scale-in-ver-top"
-                                onClick={e =>{
-                                    if(e.target.className == "flex flex-row justify-between px-6 sub-row scale-in-ver-top"){
-                                        e.target.className = "flex flex-row justify-between px-6 sub-row scale-in-ver-top active-accordion"
-
-                                        document.getElementById(title).className = "pb-6"
-                                    } else {
-                                        e.target.className = "flex flex-row justify-between px-6 sub-row scale-in-ver-top"
+                                onClick={e => {
+                                    if(e.target.hasAttribute('selected')){
+                                        e.target.removeAttribute('selected')
                                         document.getElementById(title).className = "hidden"
+                                    } else {
+                                        e.target.setAttribute('selected', '')
+                                        document.getElementById(title).className = "pb-6"
+
+                                        
                                     }
                                 }}
                                 >
                                 <h3>{title}</h3>
                             </div>
                             <div id={title} className="hidden">
-                                <h3 className="py-6 px-7 link-select" onClick={()=> checkAll(title)}>Selecionar todos os assuntos <FontAwesomeIcon icon={faCheckCircle}/></h3>
+                                <h3 className="py-6 px-7 link-select disabled" onClick={()=> checkAll(title)}>Selecionar todos os assuntos <FontAwesomeIcon icon={faCheckCircle}/></h3>
                             {Object.keys(subtitle).sort().map((item,key) => {
                                 return(
                                     <div key={key} className="flex flex-row justify-center px-6">

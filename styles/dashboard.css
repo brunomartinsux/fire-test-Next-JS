@@ -127,7 +127,7 @@ h1{
     background-size: 16px;
 }
 
-.active-accordion{
+.sub-row[selected]{
     background-image: url('/minus-solid.svg');
     background-position: 90%; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */

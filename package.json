@@ -15,11 +15,8 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
-<<<<<<< HEAD
     "firebase": "^8.7.1",
-=======
     "axios": "^0.21.1",
->>>>>>> 88072b312f8d6a26cc1851b3757c14850ac7720b
     "next": "11.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",

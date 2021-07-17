@@ -156,6 +156,12 @@ h1{
     background-size: 20px;
 }
 
+.link-select{
+    color: #8B5CF6;
+    font-weight: 600;
+    font-size: 14px;
+}
+
 /* animation */
 .scale-in-ver-top {
 	-webkit-animation: scale-in-ver-top 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s both;

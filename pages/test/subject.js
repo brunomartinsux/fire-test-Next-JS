@@ -1,4 +1,4 @@
-import { faArrowLeft, faArrowRight, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowRight, faCheckCircle, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import router from "next/router";
@@ -16,6 +16,19 @@ function Subject(){
             setSubjects(data.data.subjects)
         })()
     }, [])
+
+    function checkAll(title){
+
+      const  elements =  document.getElementsByName(title);
+      for(let i = 0; i < elements.length; i++){
+          if(elements[i].hasAttribute('selected')){
+            elements[i].removeAttribute('selected')
+          }else{
+            elements[i].setAttribute('selected', '')
+          }
+      }
+       
+    }
 
     return(
         <div>
@@ -36,7 +49,7 @@ function Subject(){
             </div>
             
             <div className="flex flex-col block pb-12">
-                {Object.keys(subjects).map((item,key) => {
+                {Object.keys(subjects).sort().map((item,key) => {
                     const title  = item
                     const subtitle = subjects[item]
 
@@ -59,10 +72,12 @@ function Subject(){
                                 <h3>{title}</h3>
                             </div>
                             <div id={title} className="hidden">
-                            {Object.keys(subtitle).map((item,key) => {
+                                <h3 className="py-6 px-7 link-select" onClick={()=> checkAll(title)}>Selecionar todos os assuntos <FontAwesomeIcon icon={faCheckCircle}/></h3>
+                            {Object.keys(subtitle).sort().map((item,key) => {
                                 return(
-                                    <div className="flex flex-row justify-center px-6">
-                                        <div className="select-subject mb-6 px-4" 
+                                    <div key={key} className="flex flex-row justify-center px-6">
+                                        <div className="select-subject mb-6 px-4"
+                                        name={title} 
                                         onClick={e => {
                                             if(e.target.hasAttribute('selected')){
                                                 e.target.removeAttribute('selected')

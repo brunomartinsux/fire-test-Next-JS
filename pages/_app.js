@@ -1,3 +1,4 @@
+import { AuthUserProvider } from '../context/authContext'
 import 'tailwindcss/tailwind.css'
 import '/styles/dashboard.css'
 import '@fortawesome/fontawesome-free/css/all.css'
@@ -9,7 +10,7 @@ config.autoAddCss = false;
 
 function MyApp({ Component, pageProps }) {
 
-return <Component {...pageProps} />
+    return <AuthUserProvider><Component {...pageProps} /></AuthUserProvider>
 
 }
 

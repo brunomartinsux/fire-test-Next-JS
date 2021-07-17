@@ -53,10 +53,11 @@ function EyePasswordIcon() {
 
 function GoogleSingInButton () {
     const { signWithGoogle } = useAuth()
+    const router = useRouter()
 
     const onSubmit = async (event) => {
         signWithGoogle()
-            .then(result => {
+            .then(authUser => {
                 router.push(`/${authUser.user.uid}`)
             })
     }

@@ -5,7 +5,8 @@
     align-items: center;
     padding: 20px;
     position: fixed;
-    background-color:#1F2937
+    background-color:#1F2937;
+    z-index: 1200
 }
 
 h1.heading{

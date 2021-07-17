@@ -1,3 +1,4 @@
+import Image from "next/image"
 import router from "next/router"
 
 function TestCards(){
@@ -12,7 +13,7 @@ function TestCards(){
                         e conteúdos você deseja estudar</h5>
                      </div>
                      <div className="flex flex-col">
-                         <img src="/build-icon.svg" alt="ranking"/>
+                         <Image width="140px" height="140px" src="/build-icon.svg" alt="ranking"/>
                      </div>  
                  </div>
 
@@ -23,7 +24,7 @@ function TestCards(){
                             as questões aleatóriamente</h5>
                      </div>
                      <div className="flex flex-col">
-                         <img src="/arrow-icons.svg" alt="ranking"/>
+                         <Image width="140px" height="140px" src="/arrow-icons.svg" alt="ranking"/>
                      </div>  
                  </div>
 
@@ -34,7 +35,7 @@ function TestCards(){
                             Faça o simulado</h5>
                      </div>
                      <div className="flex flex-col">
-                         <img src="/brain-icon.svg" alt="ranking"/>
+                         <Image width="140px" height="140px" src="/brain-icon.svg" alt="ranking"/>
                      </div>  
                  </div>
 
@@ -45,7 +46,7 @@ function TestCards(){
                         e conteúdos você deseja estudar</h5>
                      </div>
                      <div className="flex flex-col">
-                         <img src="/build-icon.svg" alt="ranking"/>
+                         <Image width="140px" height="140px" src="/build-icon.svg" alt="ranking"/>
                      </div>  
                  </div>
              </div>

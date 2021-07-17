@@ -6,7 +6,7 @@ function Test (){
 
     return(
         <div>
-            <Header children={'Simulado'}></Header>
+            <Header heading={'Simulado'}></Header>
             <TestCards/>
             <FooterComponent/>
         </div>

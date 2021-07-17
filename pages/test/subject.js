@@ -23,13 +23,14 @@ function Subject(){
             <div className="block bg-fixed"></div>
             {/* Fim do Header */}
             <div className="flex flex-col justify-center px-6" style={{paddingTop: "100px"}}>
-                <input id="searchBar" type="text" class="form-control" placeholder="Pesquise a disciplina..."/>
+                <input id="searchBar" type="text" className="form-control" placeholder="Pesquise a disciplina..."/>
             </div>
             
             <div className="flex flex-col block pb-12">
-            { subjects.map(item => {
+            { subjects.map((item,key) => {
+
                 return (
-                    <div className="flex flex-row justify-between px-6 sub-row">
+                    <div className="flex flex-row justify-between px-6 sub-row" key={key}>
                         <h3>{item}</h3>
                         <FontAwesomeIcon icon={faPlus}/>
                     </div>

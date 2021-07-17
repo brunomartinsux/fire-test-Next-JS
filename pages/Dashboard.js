@@ -6,7 +6,7 @@ function Dashboard(){
 
     return(
         <div>
-            <Header children={'Dashboard'}></Header>
+            <Header heading={'Dashboard'}></Header>
             <DashboardCards/>
         </div>
      

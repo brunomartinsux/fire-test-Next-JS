@@ -1,3 +1,6 @@
+import Image from "next/image"
+
+
 function DashboardCards(){
 
     return(
@@ -5,7 +8,7 @@ function DashboardCards(){
             <div className="items-center p-5 cards-container">
                 <div className="flex flex-row p-6 card-body mb-6">
                     <div className="flex flex-col">
-                        <img src="/ranking.svg" alt="ranking" className="dash-icon"/>
+                        <Image width="80px" height="80px" src="/ranking.svg" alt="ranking" className="dash-icon"/>
                     </div>
                     <div className="flex flex-col px-6">
                        <h4>Posição do Ranking</h4>
@@ -14,7 +17,7 @@ function DashboardCards(){
                 </div>
                 <div className="flex flex-row p-6 card-body mb-6">
                     <div className="flex flex-col">
-                        <img src="/answers.svg" alt="ranking" className="dash-icon"/>
+                        <Image width="80px" height="80px" src="/answers.svg" alt="ranking" className="dash-icon"/>
                     </div>
                     <div className="flex flex-col px-6">
                        <h4>Questões respondidas</h4>
@@ -23,7 +26,7 @@ function DashboardCards(){
                 </div>
                 <div className="flex flex-row p-6 card-body mb-6">
                     <div className="flex flex-col">
-                        <img src="/rigth-box.svg" alt="ranking" className="dash-icon"/>
+                        <Image width="80px" height="80px" src="/rigth-box.svg" alt="ranking" className="dash-icon"/>
                     </div>
                     <div className="flex flex-col px-6">
                        <h4>Respostas corretas</h4>
@@ -32,7 +35,7 @@ function DashboardCards(){
                 </div>
                 <div className="flex flex-row p-6 card-body mb-6">
                     <div className="flex flex-col">
-                        <img src="/answers.svg" alt="ranking" className="dash-icon"/>
+                        <Image width="80px" height="80px" src="/answers.svg" alt="ranking" className="dash-icon"/>
                     </div>
                     <div className="flex flex-col px-6">
                        <h4>Provas concluídas</h4>

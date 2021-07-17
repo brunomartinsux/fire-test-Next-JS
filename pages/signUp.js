@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 
-import { useAuth } from '../../context/authContext'
+import { useAuth } from '../middlewares/authContext'
 
 function SignUp (){
     
@@ -9,7 +9,7 @@ function SignUp (){
     return (
         <div className="px-5 mt-14">
             <div className="space-y-8">
-                <h1 className="text-4xl">Faça login com a sua conta</h1>
+                <h1 className="text-4xl">Cadastre-se gratuitamente</h1>
                 <GoogleSingInButton/>
                 <div className="flex flex-row justify-between space-x-4 align-middle items-center">
                     <div className="border-t-2 border-gray-200 w-full"/>
@@ -18,7 +18,7 @@ function SignUp (){
                 </div>
             </div>
             <Form/>
-            <h3 className="text-center mt-4 mb-12 text-gray-600">Ainda não tem uma conta? <span className="underline"><a href="/feature/siginup">Faça agora!</a></span></h3>
+            <h3 className="text-center mt-4 mb-12 text-gray-600">Já tem uma conta? <span className="underline"><a href="/login">Acesse agora!</a></span></h3>
         </div>
     )
 
@@ -54,12 +54,10 @@ function EyePasswordIcon() {
 function GoogleSingInButton () {
     const { signWithGoogle } = useAuth()
 
-    const onSubmit = async (event) => {
+    const onSubmit = event => {
         signWithGoogle()
             .then(result => {
-                console.log(result.user.uid)
-                // router.push(`/{authUser.user.uid}`)
-                console.log(`direcionando para ... /${result.user.uid}`)
+                router.push(`/login`)
             })
     }
 
@@ -68,7 +66,7 @@ function GoogleSingInButton () {
             <button className="w-full py-5" onClick={onSubmit}>
                 <div className="flex justify-between px-16">
                     <GoogleIcon/>
-                    <h2 className="font-medium">Fazer login com Google</h2>
+                    <h2 className="font-medium">Criar conta com Google</h2>
                 </div>
             </button>
         </div>
@@ -85,21 +83,22 @@ function Form() {
     const router = useRouter()
     const [error, setError] = useState(null)
 
-    const { signInWithEmailAndPassword } = useAuth()
+    const { createUserWithEmailAndPassword } = useAuth()
 
 
     const onSubmit = event => {
         setError(null)
-        signInWithEmailAndPassword(email, passwordOne)
-            .then(authUser => {
-                // router.push(`/{authUser.user.uid}`)
-                console.log(`direcionando para ... /${authUser.user.uid}`)
-                event.preventDefault()
-            })
-            .catch(error => {
-                setError(error.message)
-            })
-
+        if (passwordOne === passwordTwo)
+            createUserWithEmailAndPassword(email, passwordOne)
+                .then(authUser => {
+                    router.push(`/login`)
+                })
+                .catch(error => {
+                    setError(error.message)
+                })
+                
+        else
+            setError("Password do not match")
         event.preventDefault()
     }
 
@@ -129,8 +128,27 @@ function Form() {
                             id="signUpPassword"
                             placeholder="Password"/>
                     </div>
+                    {
+                        passwordOne === "" ? (
+                        <div className="hidden">
+                            <label>confirm password</label>
+                        </div>
+                    ) :(
+                        <div className="flex flex-col space-y-2">
+                            <label>CONFIRMAR SENHA</label>
+                            <input 
+                                className="py-4 w-full border border-gray-50"
+                                type="password"
+                                name="password"
+                                value={passwordTwo}
+                                onChange={(event) => setPasswordTwo(event.target.value)}
+                                id="signUpPassword2"
+                                placeholder="Password" />
+                        </div>
+                    )
+                    }
                 </div>
-                <button className="w-full rounded-2xl py-4 bg-purple-500 font-medium text-white text-center" onClick={onSubmit} >Acessar minha conta</button>
+                <button className="w-full rounded-2xl py-4 bg-purple-500 font-medium text-white text-center" onClick={onSubmit} >Criar minha conta</button>
             </form>
         </div>
     )

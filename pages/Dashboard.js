@@ -2,12 +2,12 @@ import DashboardCards from "../components/dashboard/DashboardCards"
 import Header from "../components/Header"
 
 
-function Dashboard(){
+function Dashboard({uid}){
 
     return(
         <div>
             <Header heading={'Dashboard'}></Header>
-            <DashboardCards/>
+            <DashboardCards uid={uid}/>
         </div>
      
     )

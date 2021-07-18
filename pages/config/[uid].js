@@ -4,10 +4,15 @@ import { useRouter } from 'next/router'
 import axios from "axios"
 import { useState } from "react"
 
+import { useAuth } from "../../middlewares/authContext"
+
+
 
 export default function App() {
     const router = useRouter()
     const { uid } = router.query
+
+    
 
 
     return (
@@ -34,8 +39,8 @@ function UserSettings ({ uid }) {
         console.log(requestData)
 
         await axios({
-            url: 'https://us-central1-firetest-mvp.cloudfunctions.net/patchUserInfo/',
-            method: 'POST',
+            url: '/api/patchUserInfo',
+            method: 'PATCH',
             data: requestData
         })
 
@@ -98,15 +103,18 @@ function TogleButton ({ children, buttomName }) {
 
 function ExitButton({ children }) {
 
-    const [open, setOpen] = useState(false)
+    const { signOut } = useAuth()
 
-    function onClickOpen() {
-        setOpen(!open)
+    const router = useRouter()
+
+    function ExitApp() {
+        signOut()
+        router.push('/login')
     }
 
     return (
         <div className="mx-5 bg-gray-600 rounded-2xl">
-            <button onClick={onClickOpen} className="w-full">
+            <button onClick={ExitApp} className="w-full">
                 <h1 className="text-white text-left text-xl font-normal px-4 py-6">{children}</h1>
             </button>
         </div>

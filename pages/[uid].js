@@ -18,8 +18,8 @@ export default function App() {
 
     useEffect(() => {
         (async () => {
-            const data = await axios.get(`https://us-central1-firetest-mvp.cloudfunctions.net/getUserInfos/${uid}`)
-            setUserInfos(data.data.userPoints)
+            const response = await axios.get(`api/getUserInfos/${uid}`)
+            setUserInfos(response.data)
         })()
     }, [userInfos])
 

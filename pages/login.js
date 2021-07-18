@@ -112,7 +112,7 @@ function Form() {
                     <div className="flex flex-col space-y-2">
                         <label className="text-white font-medium">E-MAIL</label>
                         <input
-                            className="bg-gray-600 py-4 w-full rounded-2xl border border-gray-900 px-2 text-white font-medium" 
+                            className="bg-gray-600 py-4 w-full rounded-2xl border-2 border-gray-200 px-2 text-white font-medium" 
                             type="email"
                             value={email}
                             onChange={(event) => setEmail(event.target.value)}
@@ -123,7 +123,7 @@ function Form() {
                     <div className="flex flex-col space-y-2">
                         <label className="text-white font-medium">SENHA</label>
                         <input 
-                            className="bg-gray-600 py-4 w-full border rounded-2xl border-gray-900 px-2 text-white font-medium"
+                            className="bg-gray-600 py-4 w-full rounded-2xl border-2 border-gray-200 px-2 text-white font-medium"
                             type="password"
                             name="password"
                             value={passwordOne}

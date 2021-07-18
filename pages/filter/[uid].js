@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect, useState } from "react"
 import FooterComponent from "../../components/Footer"
 import InputRange from 'react-input-range';
-import 'react-input-range/lib/css/index.css'
 
 function Filter(){
 
@@ -24,6 +23,8 @@ function Filter(){
             index.push(i)
             
         }
+        console.log(typeof index)
+        index.sort((a,b) => b - a)
         setYears(index)
     },[])
 
@@ -92,12 +93,13 @@ function Filter(){
                     <h4>QUANTIDADE DE QUESTÕES</h4>
                     <h2 className="text-center py-6 px-6" style={{fontSize:'24px'}}>{quantity}</h2>
                     <InputRange
+                    
                     maxValue={180}
                     minValue={15}
                     value={quantity}
                     onChange={value => setQuantity(value)} />
                 </div>
-                <div className="flex flex-row justify-center px-5 pb-12">
+                <div className="flex flex-row justify-center px-5 mb-12">
                 <div className="select-subject mb-6 px-4" 
                 onClick={e => {
                     if(e.target.hasAttribute('selected')){
@@ -107,7 +109,7 @@ function Filter(){
                     }
                     }}>Permitir questões já respondidas</div>
                 </div>
-                <button className="btn btn-primary" disabled={!valid}>Começar <FontAwesomeIcon icon={faArrowRight}/> </button>
+                <button className="btn btn-primary" hidden={!valid}>Começar <FontAwesomeIcon icon={faArrowRight}/> </button>
             </div>
             <FooterComponent />
         </div>

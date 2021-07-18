@@ -50,20 +50,16 @@ function Subject(){
                 </div>
                     <h5 style={{fontSize: "20px", fontWeight: "bold", color: "#FFF"}}>Escolher disciplina</h5>
                 <div className="flex">
-                    <FontAwesomeIcon 
-                    icon={faArrowRight} 
-                    size="lg" color="#FFF" 
-                    opacity={valid ? '100%' : '50%'}
-                    onClick={() =>{if(valid)router.push(`/filter/${uid}`)}}/>
                 </div>
             </div>
             <div className="block bg-fixed"></div>
             {/* Fim do Header */}
-            <div className="flex flex-col justify-center px-6 slide-in-left" style={{paddingTop: "100px"}}>
-                <input id="searchBar" type="text" className="form-control" placeholder="Pesquise a disciplina..."/>
+
+            <div className="flex flex-col justify-center px-6 slide-in-left" style={{paddingTop:'100px'}}>
+                <input id="searchBar" type="text" className="form-control" placeholder="Pesquise a disciplina..."></input>
             </div>
             
-            <div className="flex flex-col block pb-12">
+            <div className="flex flex-col block" style={{paddingBottom: "150px"}}>
                 {Object.keys(subjects).sort().map((item,key) => {
                     const title  = item
                     const subtitle = subjects[item]
@@ -109,6 +105,7 @@ function Subject(){
                     )
                 })}
             </div>
+            <button className="btn btn-primary" hidden={!valid} onClick={()=> router.push(`/filter/${uid}`)}>Confirmar <FontAwesomeIcon icon={faCheckCircle}/> </button>
 
             <FooterComponent/>
         </div>

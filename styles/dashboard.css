@@ -209,7 +209,7 @@ h1{
     position:fixed;
     bottom: 88px;
     right:20px;
-    background: #8B5CF6;
+    background: #8a5cf6bd;
     border-radius: 16px;
     width: 153px;
     height: 56px;
@@ -217,10 +217,10 @@ h1{
 
 }
 
-.btn.btn-primary:disabled{
-    background: rgba(182, 182, 182, 0.26);
-    color: grey
+.btn.btn-primary:hover{
+    background:#8B5CF6
 }
+
 
   @keyframes scale-in-ver-top {
     0% {
@@ -255,8 +255,4 @@ h1{
               transform: translateX(0);
       opacity: 1;
     }
-  }
-
-.input-range__track--active{
-      background: red;
   }

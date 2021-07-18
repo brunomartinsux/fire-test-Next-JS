@@ -2,14 +2,14 @@ import DashboardCards from "../components/dashboard/DashboardCards"
 import Header from "../components/Header"
 
 
-function Dashboard({uid}){
+function Dashboard({ userInfos }){
+
 
     return(
         <div>
             <Header heading={'Dashboard'}></Header>
-            <DashboardCards uid={uid}/>
+            <DashboardCards userInfos={userInfos}/>
         </div>
-     
     )
 }
 

@@ -7,18 +7,22 @@ function SignUp (){
     
 
     return (
-        <div className="px-5 mt-14">
-            <div className="space-y-8">
-                <h1 className="text-4xl">Faça login com a sua conta</h1>
-                <GoogleSingInButton/>
-                <div className="flex flex-row justify-between space-x-4 align-middle items-center">
-                    <div className="border-t-2 border-gray-200 w-full"/>
-                    <h4 className="font-medium text-gray-300 text-lg">Ou</h4>
-                    <div className="border-t-2 border-gray-200 w-full"/>
+        <div className="w-full min-h-screen flex items-stretch justify-center center-align bg-gray-900">
+            <div className="bg-gray-800 md:p-20  md:self-center md:max-w-xl pt-14 px-5 md:rounded-2xl">
+                <div className="space-y-8">
+                    <h1 className="text-4xl md:text-3xl text-white">Faça login com a sua conta</h1>
+                    <div className="w-full flex justify-center">
+                        <GoogleSingInButton/>
+                    </div>
+                    <div className="mx-5 flex flex-row justify-between space-x-4 align-middle items-center">
+                        <div className="border-t-2 border-gray-600 w-full"/>
+                        <h4 className="font-medium text-gray-500 text-lg">Ou</h4>
+                        <div className="border-t-2 border-gray-600 w-full"/>
+                    </div>
                 </div>
+                <Form/>
+                <h3 className="text-center mt-4 md:mt-12 pb-6 text-gray-400">Ainda não tem uma conta? <span className="underline"><a href="/signUp">Faça agora!</a></span></h3>
             </div>
-            <Form/>
-            <h3 className="text-center mt-4 mb-12 text-gray-600">Ainda não tem uma conta? <span className="underline"><a href="/signUp">Faça agora!</a></span></h3>
         </div>
     )
 
@@ -63,14 +67,15 @@ function GoogleSingInButton () {
     }
 
     return (
-        <div className="text-center bg-gray-50 border border-gray-300 rounded-lg">
-            <button className="w-full py-5" onClick={onSubmit}>
-                <div className="flex justify-between px-16">
+        <div className="text-center md:max-w-xs bg-gray-700 border border-gray-800 rounded-lg">
+            <button className="w-full py-5 " onClick={onSubmit}>
+                <div className="flex justify-between px-16 md:px-12 md:space-x-4 space-x-2">
                     <GoogleIcon/>
-                    <h2 className="font-medium">Fazer login com Google</h2>
+                    <h2 className="font-medium text-white">Fazer login com Google</h2>
                 </div>
             </button>
         </div>
+        
     )
 
 }
@@ -105,26 +110,26 @@ function Form() {
             <form onSubmit={onSubmit} className="space-y-8">
                 <div className="space-y-6">
                     <div className="flex flex-col space-y-2">
-                        <label>E-MAIL</label>
+                        <label className="text-white font-medium">E-MAIL</label>
                         <input
-                            className="py-4 w-full rounded-2xl border border-gray-200 px-2" 
+                            className="bg-gray-600 py-4 w-full rounded-2xl border border-gray-900 px-2 text-white font-medium" 
                             type="email"
                             value={email}
                             onChange={(event) => setEmail(event.target.value)}
                             name="email"
                             id="signUpEmail"
-                            placeholder="Email"/>
+                            />
                     </div>
                     <div className="flex flex-col space-y-2">
-                        <label>SENHA</label>
+                        <label className="text-white font-medium">SENHA</label>
                         <input 
-                            className="py-4 w-full border rounded-2xl border-gray-200 px-2"
+                            className="bg-gray-600 py-4 w-full border rounded-2xl border-gray-900 px-2 text-white font-medium"
                             type="password"
                             name="password"
                             value={passwordOne}
                             onChange={(event) => setPasswordOne(event.target.value)}
                             id="signUpPassword"
-                            placeholder="Password"/>
+                            />
                     </div>
                 </div>
                 <button className="w-full rounded-2xl py-4 bg-purple-500 font-medium text-white text-center" onClick={onSubmit} >Acessar minha conta</button>

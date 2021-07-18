@@ -116,7 +116,7 @@ function Form() {
                             onChange={(event) => setEmail(event.target.value)}
                             name="email"
                             id="signUpEmail"
-                            placeholder="Email"/>
+                            />
                     </div>
                     <div className="flex flex-col space-y-2">
                         <label>SENHA</label>
@@ -127,7 +127,7 @@ function Form() {
                             value={passwordOne}
                             onChange={(event) => setPasswordOne(event.target.value)}
                             id="signUpPassword"
-                            placeholder="Password"/>
+                            />
                     </div>
                     {
                         passwordOne === "" ? (
@@ -144,7 +144,7 @@ function Form() {
                                 value={passwordTwo}
                                 onChange={(event) => setPasswordTwo(event.target.value)}
                                 id="signUpPassword2"
-                                placeholder="Password" />
+                                />
                         </div>
                     )
                     }

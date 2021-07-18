@@ -1,4 +1,5 @@
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import { useRouter } from "next/router" 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect, useState } from "react"
 import FooterComponent from "../../components/Footer"
@@ -11,7 +12,13 @@ function Filter(){
     const [years, setYears] = useState([])
     const [quantity, setQuantity] = useState(50)
 
+
+    const router = useRouter()
+
+    const { uid } = router.query
+
     useEffect(() => {
+    
     const index = []
         for(let i = 1994; i < 2021 ; i++){
             index.push(i)

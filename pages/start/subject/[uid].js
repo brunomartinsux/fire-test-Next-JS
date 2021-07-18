@@ -1,7 +1,7 @@
 import { faArrowLeft, faArrowRight, faCheckCircle, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
-import router from "next/router";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import FooterComponent from "../../../components/Footer";
 
@@ -9,6 +9,8 @@ function Subject(){
 
     const [subjects, setSubjects ] = useState([])
     const [valid, isValid] = useState(false)
+
+    const router = useRouter()
 
     const { uid } = router.query
    

@@ -3,6 +3,8 @@ import Image from "next/image"
 
 
 function DashboardCards({ userInfos }) {
+
+    console.log(userInfos)
     
     return ( 
         <div>
@@ -36,7 +38,7 @@ function DashboardCards({ userInfos }) {
                 </div>
                 <div className="flex flex-row p-6 card-body mb-6 scale-in-ver-top">
                     <div className="flex flex-col">
-                        <Image width="80px" height="80px" src="/answers.svg" alt="ranking" className="dash-icon" />
+                        <Image width="80px" height="80px" src="/wrong-asw.svg" alt="ranking" className="dash-icon" />
                     </div>
                     <div className="flex flex-col px-6">
                         <h4>Respostas erradas</h4>

@@ -4,11 +4,10 @@ import { faGraduationCap, faHome, faUser } from '@fortawesome/free-solid-svg-ico
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function FooterComponent() {
+    
     const router = useRouter();
 
     const { uid } = router.query
-
-    console.log(router.pathname)
 
     return (
         <div className="flex flex-row footer">

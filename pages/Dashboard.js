@@ -8,7 +8,7 @@ function Dashboard({ userInfos }){
     return(
         <div>
             <Header heading={'Dashboard'}></Header>
-            <DashboardCards userInfos={userInfos}/>
+            { userInfos && <DashboardCards userInfos={userInfos}/>}
         </div>
     )
 }

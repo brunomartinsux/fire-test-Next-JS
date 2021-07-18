@@ -12,7 +12,7 @@ function Test (){
         <div>
             <Header heading={'Simulado'}></Header>
             {uid && <TestCards uid={uid}/>}
-            {uid && <FooterComponent/>}
+            <FooterComponent/>
         </div>
     )
 }

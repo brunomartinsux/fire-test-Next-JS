@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useRouter } from 'next/router'
+import router, { useRouter } from 'next/router'
 
 import { useAuth } from '../middlewares/authContext'
 
@@ -21,7 +21,7 @@ function SignUp (){
                     </div>
                 </div>
                 <Form/>
-                <h3 className="text-center mt-4 md:mt-12 pb-6 text-gray-400">Ainda não tem uma conta? <span className="underline"><a href="/signUp">Faça agora!</a></span></h3>
+                <h3 className="text-center mt-4 md:mt-12 pb-6 text-gray-400">Ainda não tem uma conta? <span className="underline"><div onClick={() => router.push(`/signUp`)}>Faça agora!</div></span></h3>
             </div>
         </div>
     )

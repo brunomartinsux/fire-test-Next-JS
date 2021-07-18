@@ -6,7 +6,6 @@ function DashboardCards({ userInfos }) {
     
     return ( 
         <div>
-            {console.log(userInfos)}
             <div className="items-center p-5 cards-container">
                 <div className="flex flex-row p-6 card-body mb-6 scale-in-ver-top scale-in-ver-top">
                     <div className="flex flex-col">

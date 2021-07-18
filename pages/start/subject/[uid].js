@@ -3,11 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import router from "next/router";
 import { useEffect, useState } from "react";
-import FooterComponent from "../../components/Footer";
+import FooterComponent from "../../../components/Footer";
 
 function Subject(){
 
     const [subjects, setSubjects ] = useState([])
+
+    const { uid } = router.query
    
 
     useEffect(() => {
@@ -34,7 +36,7 @@ function Subject(){
         <div>
             {/* Header com rota de disciplina */}
             <div className="flex flex-row block header justify-around">
-                <div className="flex" onClick={()=> {router.push('/test')}}>
+                <div className="flex" onClick={()=> {router.push(`/start/${uid}`)}}>
                     <FontAwesomeIcon icon={faArrowLeft} size="lg" color="#FFF"/>
                 </div>
                     <h5 style={{fontSize: "20px", fontWeight: "bold", color: "#FFF"}}>Escolher disciplina</h5>

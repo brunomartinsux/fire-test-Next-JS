@@ -1,12 +1,15 @@
 import Image from "next/image"
-import router from "next/router"
+import { useRouter } from "next/router";
 
-function TestCards(){
+
+function TestCards({ uid }){
+
+    const router = useRouter();
 
     return(
         <div>
              <div className="items-center p-5 cards-container">
-                 <div className="flex flex-row p-6 test-card-body mb-6 scale-in-ver-top" onClick={()=> {router.push('/test/subject')}}>
+                 <div className="flex flex-row p-6 test-card-body mb-6 scale-in-ver-top" onClick={()=> {router.push(`/start/subject/${uid}`)}}>
                     <div className="flex flex-col card-text">
                         <p>MONTE SEU DESAFIO</p>
                         <h5>Selecione quais disciplinas 

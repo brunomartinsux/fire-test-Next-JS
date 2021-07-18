@@ -11,8 +11,8 @@ function Test (){
     return(
         <div>
             <Header heading={'Simulado'}></Header>
-            <TestCards/>
-            {uid && <FooterComponent uid={uid}/>}
+            {uid && <TestCards uid={uid}/>}
+            {uid && <FooterComponent/>}
         </div>
     )
 }

@@ -8,6 +8,7 @@ import FooterComponent from "../../../components/Footer";
 function Subject(){
 
     const [subjects, setSubjects ] = useState([])
+    const [valid, isValid] = useState(false)
 
     const { uid } = router.query
    
@@ -17,10 +18,18 @@ function Subject(){
             const data = await axios.get('https://us-central1-firetest-mvp.cloudfunctions.net/allSubjects')
             setSubjects(data.data.subjects)
         })()
-    }, [])
+    }, [valid])
+
+    
+    function validateSub(title){
+        const  elements =  document.getElementsByName(title);
+        for(let i = 0; i < elements.length; i++){
+            if(elements[i].hasAttribute('selected')){isValid(true)}
+        }
+    }
+
 
     function checkAll(title){
-
       const  elements =  document.getElementsByName(title);
       for(let i = 0; i < elements.length; i++){
           if(elements[i].hasAttribute('selected')){
@@ -29,9 +38,7 @@ function Subject(){
             elements[i].setAttribute('selected', '')
           }
       }
-       
     }
-
     return(
         <div>
             {/* Header com rota de disciplina */}
@@ -41,7 +48,11 @@ function Subject(){
                 </div>
                     <h5 style={{fontSize: "20px", fontWeight: "bold", color: "#FFF"}}>Escolher disciplina</h5>
                 <div className="flex">
-                    <FontAwesomeIcon icon={faArrowRight} size="lg" color="#FFF"/>
+                    <FontAwesomeIcon 
+                    icon={faArrowRight} 
+                    size="lg" color="#FFF" 
+                    opacity={valid ? '100%' : '50%'}
+                    onClick={() =>{if(valid)router.push(`/filter/${uid}`)}}/>
                 </div>
             </div>
             <div className="block bg-fixed"></div>
@@ -55,7 +66,6 @@ function Subject(){
                     const title  = item
                     const subtitle = subjects[item]
 
-
                     return (
                         <div key = {key} className="">
                             <div
@@ -67,14 +77,13 @@ function Subject(){
                                     } else {
                                         e.target.setAttribute('selected', '')
                                         document.getElementById(title).className = "pb-6"
-
-                                        
+  
                                     }
                                 }}
                                 >
                                 <h3>{title}</h3>
                             </div>
-                            <div id={title} className="hidden">
+                            <div id={title} name={title} className="hidden">
                                 <h3 className="py-6 px-7 link-select disabled" onClick={()=> checkAll(title)}>Selecionar todos os assuntos <FontAwesomeIcon icon={faCheckCircle}/></h3>
                             {Object.keys(subtitle).sort().map((item,key) => {
                                 return(
@@ -87,6 +96,8 @@ function Subject(){
                                             } else {
                                                 e.target.setAttribute('selected', '')
                                             }
+                                            validateSub(title)
+
                                         }}> {subtitle[key]}</div>
                                     </div>
                                 )

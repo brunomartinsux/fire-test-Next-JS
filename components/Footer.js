@@ -26,7 +26,7 @@ function FooterComponent() {
                     icon={faGraduationCap}
                     size="lg"
                     opacity="50%"
-                    className={router.pathname == `/start/[uid]` || router.pathname == "/start/subject" ? "active" : ""}
+                    className={router.pathname == `/start/[uid]` || router.pathname == `/start/subject/[uid]` || router.pathname == `/filter/[uid]` ? "active" : ""}
                     onClick={() => router.push(`/start/${uid}`)}
                 />
             }

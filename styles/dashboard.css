@@ -4,6 +4,7 @@
     border-bottom: 1px solid #E5E7EB;
     align-items: center;
     padding: 20px;
+    top: 0;
     position: fixed;
     background-color:#1F2937;
     z-index: 1200
@@ -162,10 +163,63 @@ h1{
     font-size: 14px;
 }
 
+.year-select{
+    display: flex;
+    width: 98px;
+    height: 56px;
+    border-radius: 8px;
+    align-items: center;
+
+    color: #fff;
+    /* Gray/600 */
+    background-image: url('/to-select.svg');
+    background-position: 85%; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 20px;
+
+    border: 1px solid #4B5563;
+}
+
+.year-select[selected]{
+    background-color: #4B5563;
+    background-image: url('/selected.svg');
+    background-position: 85%; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 20px;
+}
+
 /* animation */
 .scale-in-ver-top {
 	-webkit-animation: scale-in-ver-top 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s both;
 	        animation: scale-in-ver-top 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s both;
+}
+
+.drag-card{
+    display: flex;
+    background: #4B5563;
+    height: 213px;
+    color: #fff;
+    /* Gray/600 */
+
+    border: 1px solid #4B5563;
+    border-radius: 16px;
+}
+
+.btn.btn-primary{
+    position:fixed;
+    bottom: 88px;
+    right:20px;
+    background: #8B5CF6;
+    border-radius: 16px;
+    width: 153px;
+    height: 56px;
+    color: #fff;
+
+}
+
+.btn.btn-primary:disabled{
+    background: rgba(182, 182, 182, 0.26);
+    color: grey
 }
 
   @keyframes scale-in-ver-top {
@@ -202,4 +256,19 @@ h1{
       opacity: 1;
     }
   }
-  
+
+  .input-range__slider {
+    appearance: none;
+    background: #8B5CF6;
+    border: 1px solid #118638;
+    border-radius: 100%;
+    cursor: pointer;
+    display: block;
+    height: 1rem;
+    margin-left: -0.5rem;
+    margin-top: -0.65rem;
+    outline: none;
+    position: absolute;
+    top: 50%;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    width: 1rem; }

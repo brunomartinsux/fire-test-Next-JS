@@ -4,6 +4,8 @@ import { useRouter } from 'next/router'
 import { useAuth } from '../middlewares/authContext'
 
 function SignUp (){
+
+    const router = useRouter()
     
 
     return (
@@ -21,7 +23,7 @@ function SignUp (){
                 </div>
             </div>
             <Form/>
-            <h3 className="text-center mt-4 md:mt-12 pb-6 text-gray-400">Já tem uma conta? <span className="underline"><a href="/login">Acesse agora!</a></span></h3>
+            <h3 className="text-center mt-4 md:mt-12 pb-6 text-gray-400">Já tem uma conta? <span className="underline"><div onClick={() => router.push(`/login`)}>Acesse agora!</div></span></h3>
             </div>
         </div>
 

@@ -17,8 +17,9 @@ function Subject(){
 
     useEffect(() => {
         (async () => {
-            const data = await axios.get('https://us-central1-firetest-mvp.cloudfunctions.net/allSubjects')
-            setSubjects(data.data.subjects)
+            const response = await axios.get('/api/allSubjects')
+            console.log(response)
+            setSubjects(response.data)
         })()
     }, [valid])
 

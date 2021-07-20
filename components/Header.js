@@ -7,7 +7,7 @@ function Header(props){
     const router = withRouter
 
     return(
-        <div className="flex flex-row block header">
+        <div className="flex flex-row header md:hidden">
             <h1 className="heading slide-in-left">{props.heading}</h1>
         </div>
     )

@@ -43,9 +43,9 @@ function Subject(){
       }
     }
     return(
-        <div>
+        <div className="">
             {/* Header com rota de disciplina */}
-            <div className="flex flex-row block header justify-around">
+            <div className="flex flex-row header justify-around pl-96" >
                 <div className="flex" onClick={()=> {router.push(`/start/${uid}`)}}>
                     <FontAwesomeIcon icon={faArrowLeft} size="lg" color="#FFF"/>
                 </div>

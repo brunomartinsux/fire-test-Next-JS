@@ -8,7 +8,7 @@ function DashboardCards({ userInfos }) {
     
     return ( 
         <div>
-            <div className="items-center p-5 cards-container">
+            <div className="min-h-screen items-center p-5 cards-container">
                 <div className="flex flex-row p-6 card-body mb-6 scale-in-ver-top scale-in-ver-top">
                     <div className="flex flex-col">
                         <Image width="80px" height="80px" src="/ranking.svg" alt="ranking" className="dash-icon" />

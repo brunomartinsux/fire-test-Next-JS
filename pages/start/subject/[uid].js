@@ -5,9 +5,11 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import FooterComponent from "../../../components/Footer";
 
-function Subject() {
+function Subject(props) {
 
-    const [subjects, setSubjects] = useState([])
+
+
+    const subjects = props.subjects
     const [valid, isValid] = useState(false)
 
     const router = useRouter()
@@ -17,9 +19,6 @@ function Subject() {
 
     useEffect(() => {
         (async () => {
-            const response = await axios.get('/api/allSubjects')
-            console.log(response)
-            setSubjects(response.data)
         })()
     }, [valid])
 
@@ -114,6 +113,18 @@ function Subject() {
             <FooterComponent />
         </div>
     )
+}
+
+export async function getServerSideProps(context) {
+
+    const response = await fetch('https://us-central1-firetest-mvp.cloudfunctions.net/allSubjects')
+    const data = await response.json()
+
+    return {
+        props: {
+            subjects: data.subjects
+        }
+    }
 }
 
 export default Subject
